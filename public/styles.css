@@ -338,16 +338,18 @@ a { color: inherit; }
   margin-top: 40px;
 }
 
-/* ---------------------------- reveal anim -------------------------- */
-.reveal {
+/* ---------------------------- reveal anim --------------------------
+   Scoped to .js so that with JavaScript disabled nothing is ever
+   hidden — the content simply appears without animating.            */
+.js .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity .6s ease, transform .6s ease;
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .card, .theme-toggle { transition: none; }
 }
